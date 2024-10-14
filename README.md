@@ -15,17 +15,77 @@
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
 </p>
 
-## Usage
+ephrem-ai is a Node.js package that combines the ephrem library with OpenAI’s API to fetch Bible passages based on user-inputted descriptions.
+It uses OpenAI models to generate scriptural references and the ephrem library to retrieve the corresponding Bible passages.
+This open-source tool is designed to make scripture exploration easier and more intuitive for developers, scholars, and laypersons alike, all for the glory of God.
+
+## Features
+
+- Natural Language Queries: Users can input descriptive queries like “Jesus turns water into wine,” and the package will generate the relevant Bible reference and retrieve the scripture text.
+- Multiple Bible Versions: Fetch Bible passages from various translations, such as the KJV, BSB, and more.
+- OpenAI Integration: Supports multiple OpenAI models (gpt-3.5-turbo, gpt-4, gpt-4o, gpt-4o-mini) for accurate generation of Bible references.
+- Multilingual Support: Ephrem allows fetching Bible passages in multiple languages, supporting both LTR and RTL text directions.
+
+## Prerequisites
+
+1. API.Bible Account: You’ll need an API key from API.Bible.
+2. OpenAI Account: You’ll need an API key from OpenAI.
+
+## Installation
+
+To install the package, run the following command:
 
 ```shell
 npm i ephrem-ai
 ```
 
-```ts
-import { greet } from "ephrem-ai";
+## Setup (One-time Configuration)
 
-greet("Hello, world! 💖");
+Before using ephrem-ai, you need to configure it by fetching Bible and book data using the setupEphrem function from the ephrem package.
+
+```ts
+import { setupEphrem } from "ephrem";
+
+// Load API key from .env or environment variable
+const apiBibleKey = process.env.API_BIBLE_KEY;
+
+setupEphrem(["eng", "ara"], apiBibleKey)
+	.then((path) => console.log(`Bible data stored at: ${path}`))
+	.catch((err) => console.error(`Setup failed: ${err.message}`));
 ```
+
+This one-time setup ensures you have the necessary Bible data for your application.
+
+## Usage
+
+Once the setup is complete, you can fetch scripture text by describing a biblical event or passage.
+
+Example: Fetch a Passage
+
+```ts
+import { seekPassages } from "ephrem-ai";
+
+// Load API keys from .env or environment variables
+const apiBibleKey = process.env.API_BIBLE_KEY;
+const openAiApiKey = process.env.OPENAI_API_KEY;
+
+await seekPassages(
+	"Jesus turns water into wine",
+	"KJV",
+	{ contentType: "text" },
+	apiBibleKey,
+	openAiApiKey,
+)
+	.then((details) => {
+		console.log(`Passage Text: ${details.data.content}`);
+	})
+	.catch((err) => console.error(`Error fetching passage: ${err.message}`));
+```
+
+## License
+
+`ephrem-ai` is open-source under the MIT License.
+This package will remain non-commercial and open-source, serving the glory of God by facilitating scriptural engagement for everyone.
 
 ## Contributors
 
