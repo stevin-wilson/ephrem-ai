@@ -4,6 +4,8 @@
 import { BOOK_IDs } from "ephrem";
 import OpenAI from "openai";
 
+import { BaseEphremAiError } from "./utils.js";
+
 // – – – – – – – – – –
 export type OpenAIModels = "gpt-3.5-turbo" | "gpt-4" | "gpt-4o" | "gpt-4o-mini";
 
@@ -22,6 +24,21 @@ export interface ReferencesWithoutBibleResponse {
 }
 
 // – – – – – – – – – –
+export class InvalidOpenAiResponse extends BaseEphremAiError {
+	public context: {
+		description: string;
+	};
+
+	constructor(description: string, message?: string) {
+		message ||= `Unexpected response from OpenAI. Please modify the description and try again.`;
+
+		super(message);
+		this.name = "InvalidOpenAiResponse";
+		this.context = {
+			description,
+		};
+	}
+}
 
 // – – – – – – – – – –
 const getSystemMessage = (maxReferenceCount: number) => `
@@ -133,12 +150,10 @@ export const getReferencesFromDescription = async (
 		);
 		return parseOpenAiResponse(response).referencesWithoutBible;
 	} catch (error) {
-		// Check if error has a message property.
+		let message: string | undefined = undefined;
 		if (error instanceof Error) {
-			throw new Error();
+			message = error.message;
 		}
-
-		// If the error doesn't have a message property, fall back to throwing a general error.
-		throw new Error();
+		throw new InvalidOpenAiResponse(description, message);
 	}
 };
