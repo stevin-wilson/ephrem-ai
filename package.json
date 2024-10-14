@@ -2,12 +2,19 @@
 	"name": "ephrem-ai",
 	"version": "0.0.0",
 	"description": "ephrem-ai is a Node.js package that combines the ephrem library with OpenAI’s API, enabling users to input queries about biblical narratives and receive generated references along with the corresponding scripture passages.",
+	"keywords": [
+		"Bible",
+		"Scripture",
+		"OpenAI",
+		"GenAI"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/stevin-wilson/ephrem-ai"
 	},
 	"license": "MIT",
 	"author": {
+		"name": "Stevin Wilson",
 		"email": "hello@stevinwilson.com"
 	},
 	"type": "module",
