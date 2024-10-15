@@ -15,7 +15,7 @@
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
 </p>
 
-ephrem-ai is a Node.js package that combines the ephrem library with OpenAI’s API to fetch Bible passages based on user-inputted descriptions.
+`ephrem-ai` is a Node.js package that combines the ephrem library with OpenAI’s API to fetch Bible passages based on user-inputted descriptions.
 It uses OpenAI models to generate scriptural references and the ephrem library to retrieve the corresponding Bible passages.
 This open-source tool is designed to make scripture exploration easier and more intuitive for developers, scholars, and laypersons alike, all for the glory of God.
 
@@ -41,20 +41,44 @@ npm i ephrem-ai
 
 ## Setup (One-time Configuration)
 
-Before using ephrem-ai, you need to configure it by fetching Bible and book data using the setupEphrem function from the ephrem package.
+Before using `ephrem-ai`, you need to configure it to use OpenAI and API.Bible APIs.
 
-```ts
-import { setupEphrem } from "ephrem";
+### Setting the `OPENAI_API_KEY` Environment Variable
 
-// Load API key from .env or environment variable
-const apiBibleKey = process.env.API_BIBLE_KEY;
+Follow the steps below based on your platform to set the environment variable.
 
-setupEphrem(["eng", "ara"], apiBibleKey)
-	.then((path) => console.log(`Bible data stored at: ${path}`))
-	.catch((err) => console.error(`Setup failed: ${err.message}`));
+#### Windows
+
+1. Open Start and search for “Environment Variables”.
+2. Click on Edit the system environment variables.
+3. In the System Properties window, click Environment Variables.
+4. Under User variables, click New.
+5. Set the Variable name to `OPENAI_API_KEY` and the Variable value to your OpenAI API key.
+6. Click OK to save.
+
+Alternatively, if you are using PowerShell, you can set it temporarily with:
+
+```shell
+$env:OPENAI_API_KEY = "your-openai-api-key"
 ```
 
-This one-time setup ensures you have the necessary Bible data for your application.
+#### macOS / Linux
+
+1. Open a Terminal.
+2. Use the following command to set the environment variable temporarily (only for the current session):
+
+```shell
+export OPENAI_API_KEY="your-openai-api-key"
+```
+
+3. To set the environment variable permanently, add the above line to your shell configuration file:
+
+- If using bash, add it to your `~/.bashrc` or `~/.bash_profile`.
+- If using zsh, add it to your `~/.zshrc`.
+
+### Setting up `ephrem`
+
+Please follow [these instructions](https://github.com/stevin-wilson/ephrem?tab=readme-ov-file#installation) to set up the `ephrem` library.
 
 ## Usage
 
@@ -65,17 +89,9 @@ Example: Fetch a Passage
 ```ts
 import { seekPassages } from "ephrem-ai";
 
-// Load API keys from .env or environment variables
-const apiBibleKey = process.env.API_BIBLE_KEY;
-const openAiApiKey = process.env.OPENAI_API_KEY;
-
-await seekPassages(
-	"Jesus turns water into wine",
-	"KJV",
-	{ contentType: "text" },
-	apiBibleKey,
-	openAiApiKey,
-)
+await seekPassages("Jesus turns water into wine", "KJV", {
+	contentType: "text",
+})
 	.then((details) => {
 		console.log(`Passage Text: ${details.data.content}`);
 	})

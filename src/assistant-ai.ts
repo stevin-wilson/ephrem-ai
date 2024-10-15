@@ -24,6 +24,20 @@ export interface ReferencesWithoutBibleResponse {
 }
 
 // – – – – – – – – – –
+export class OpenAiApiKeyNotFoundError extends BaseEphremAiError {
+	constructor() {
+		super("OpenAI API key not found. Please provide a valid API key.");
+		this.name = "OpenAiApiKeyNotFoundError";
+		this.context = {};
+	}
+}
+
+// – – – – – – – – – –
+export const hasOpenAiApiKey = (): boolean => {
+	return process.env.OPENAI_API_KEY !== undefined;
+};
+
+// – – – – – – – – – –
 export class InvalidOpenAiResponse extends BaseEphremAiError {
 	public context: {
 		description: string;
@@ -133,12 +147,15 @@ const parseOpenAiResponse = (
 // – – – – – – – – – –
 export const getReferencesFromDescription = async (
 	description: string,
-	openAiApiKey: string,
 	openAIModel?: OpenAIModels,
 	maxReferenceCount?: number,
 ): Promise<ReferenceWithoutBible[]> => {
+	if (!hasOpenAiApiKey()) {
+		throw new OpenAiApiKeyNotFoundError();
+	}
+
 	const openai = new OpenAI({
-		apiKey: openAiApiKey,
+		apiKey: process.env.OPENAI_API_KEY,
 	});
 
 	try {
