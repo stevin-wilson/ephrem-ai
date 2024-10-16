@@ -1,3 +1,9 @@
+## [0.4.1](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.0...0.4.1) (2024-10-16)
+
+### Bug Fixes
+
+- bump ephrem version ([fce52b5](https://github.com/stevin-wilson/ephrem-ai/commit/fce52b567ebfa4e7cc5a0ab528c0ec3b888e0d97))
+
 # [0.4.0](https://github.com/stevin-wilson/ephrem-ai/compare/0.3.0...0.4.0) (2024-10-16)
 
 ### Bug Fixes
