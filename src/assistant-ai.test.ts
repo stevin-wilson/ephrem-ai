@@ -1,10 +1,9 @@
+import type { ReferenceWithoutBible } from "ephrem";
+
 import { describe, expect, it } from "vitest";
 
 // – – – – – – – – – –
-import {
-	getReferencesFromDescription,
-	ReferenceWithoutBible,
-} from "./assistant-ai.js";
+import { getReferencesFromDescription } from "./assistant-ai.js";
 
 describe("seek passage", () => {
 	it("confirm ability to produce reference", async () => {
