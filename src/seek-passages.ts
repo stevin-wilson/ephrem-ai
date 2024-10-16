@@ -1,3 +1,10 @@
+import type {
+	PassageAndFums,
+	PassageOptions,
+	PassageWithDetails,
+	Reference,
+} from "ephrem";
+
 import {
 	BibleNotAvailableError,
 	BookIdNotFoundError,
@@ -10,86 +17,6 @@ import {
 } from "ephrem";
 
 import { getReferencesFromDescription, OpenAIModels } from "./assistant-ai.js";
-
-// – – – – – – – – – –
-export interface PassageOptions {
-	readonly contentType?: "html" | "json" | "text";
-	readonly includeChapterNumbers?: boolean;
-	readonly includeNotes?: boolean;
-	readonly includeTitles?: boolean;
-	readonly includeVerseNumbers?: boolean;
-	readonly includeVerseSpans?: boolean;
-}
-
-// – – – – – – – – – –
-export type ScriptDirection = "LTR" | "RTL";
-
-// – – – – – – – – – –
-export interface Language {
-	readonly id: string;
-	readonly name: string;
-	readonly nameLocal: string;
-	readonly script: string;
-	readonly scriptDirection: ScriptDirection;
-}
-
-// – – – – – – – – – –
-export interface BibleResponse {
-	readonly abbreviation: string;
-	readonly abbreviationLocal: string;
-	readonly dblId: string;
-	readonly description: string;
-	readonly descriptionLocal: string;
-	readonly id: string;
-	readonly language: Language;
-	readonly name: string;
-	readonly nameLocal: string;
-
-	readonly [key: string]: unknown;
-}
-
-// – – – – – – – – – –
-export interface Book {
-	readonly abbreviation: string;
-	readonly bibleId: string;
-	readonly id: string;
-	readonly name: string;
-	readonly nameLong: string;
-}
-
-// – – – – – – – – – –
-export interface PassageResponse {
-	readonly content: string;
-	readonly copyright: string;
-	readonly id: string;
-
-	readonly [key: string]: unknown;
-
-	readonly reference: string;
-}
-
-// – – – – – – – – – –
-export interface FumsResponse {
-	readonly fums: string;
-
-	readonly [key: string]: unknown;
-}
-
-// – – – – – – – – – –
-export interface PassageAndFumsResponse {
-	readonly data: PassageResponse;
-	readonly meta: FumsResponse;
-
-	readonly [key: string]: unknown;
-}
-
-// – – – – – – – – – –
-export interface PassageWithDetails {
-	readonly bible: BibleResponse;
-	readonly book: Book;
-	readonly fums: FumsResponse;
-	readonly passage: PassageResponse;
-}
 
 // – – – – – – – – – –
 export const seekPassages = async (
@@ -114,10 +41,10 @@ export const seekPassages = async (
 		);
 	}
 
-	const passages: PassageAndFumsResponse[] = [];
+	const passages: PassageAndFums[] = [];
 
 	for (const referenceWithoutBible of referencesWithoutBible) {
-		const reference = {
+		const reference: Reference = {
 			...referenceWithoutBible,
 			bibleId,
 		};
@@ -171,7 +98,7 @@ export const seekPassagesWithDetails = async (
 
 	const passages: PassageWithDetails[] = [];
 	for (const referenceWithoutBible of referencesWithoutBible) {
-		const reference = {
+		const reference: Reference = {
 			...referenceWithoutBible,
 			bibleId,
 		};
