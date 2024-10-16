@@ -1,3 +1,13 @@
+# [0.4.0](https://github.com/stevin-wilson/ephrem-ai/compare/0.3.0...0.4.0) (2024-10-16)
+
+### Bug Fixes
+
+- type import in unit test ([d5f126a](https://github.com/stevin-wilson/ephrem-ai/commit/d5f126a110287bd993ee46b20b24962670c395e1))
+
+### Features
+
+- import types from ephrem ([5570438](https://github.com/stevin-wilson/ephrem-ai/commit/5570438c89a78b1f4f136b75476baacb867b8260))
+
 # 0.3.0 (2024-10-15)
 
 ### Bug Fixes
