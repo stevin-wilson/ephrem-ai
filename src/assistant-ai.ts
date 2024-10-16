@@ -1,22 +1,14 @@
 // eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import { BOOK_IDs } from "ephrem";
+import type { ReferenceWithoutBible } from "ephrem";
+
 import OpenAI from "openai";
 
 import { BaseEphremAiError } from "./utils.js";
 
 // – – – – – – – – – –
 export type OpenAIModels = "gpt-3.5-turbo" | "gpt-4" | "gpt-4o" | "gpt-4o-mini";
-
-// – – – – – – – – – –
-export interface ReferenceWithoutBible {
-	bookId: keyof typeof BOOK_IDs; // Must be a USFM Book Identifier. Consider deuterocanonical books when applicable
-	chapterEnd?: string; // if verseEnd and verseStart are in different chapters
-	chapterStart: string;
-	verseEnd?: string; // if verseEnd is different from verseStart or chapterStart != chapterEnd
-	verseStart?: string;
-}
 
 // – – – – – – – – – –
 export interface ReferencesWithoutBibleResponse {

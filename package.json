@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"main": "./lib/index.js",
+	"types": "./lib/index.d.ts",
 	"files": [
 		"lib/",
 		"package.json",
@@ -41,7 +42,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
-		"ephrem": "^0.8.1",
+		"ephrem": "^0.9.0",
 		"openai": "^4.67.3"
 	},
 	"devDependencies": {
