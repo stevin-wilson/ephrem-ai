@@ -1,6 +1,6 @@
 {
 	"name": "ephrem-ai",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"description": "ephrem-ai is a Node.js package that combines the ephrem library with OpenAI’s API, enabling users to input queries about biblical narratives and receive generated references along with the corresponding scripture passages.",
 	"keywords": [
 		"Bible",

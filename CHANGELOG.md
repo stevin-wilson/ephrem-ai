@@ -1,3 +1,11 @@
+## [0.4.2](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.1...0.4.2) (2024-10-17)
+
+### Bug Fixes
+
+- add more examples to usage section ([697b631](https://github.com/stevin-wilson/ephrem-ai/commit/697b6315db76935100b3e227a30f17d1d7154e58))
+- md lint errors ([4ea526d](https://github.com/stevin-wilson/ephrem-ai/commit/4ea526d75637cabce11db5ad5261c5b63eea43c1))
+- usage in readme ([79e185a](https://github.com/stevin-wilson/ephrem-ai/commit/79e185a0eb25ebe4bd792ad0f3012052ec5c30ef))
+
 ## [0.4.1](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.0...0.4.1) (2024-10-16)
 
 ### Bug Fixes
