@@ -89,13 +89,32 @@ Example: Fetch a Passage
 ```ts
 import { seekPassages } from "ephrem-ai";
 
-await seekPassages("Jesus turns water into wine", "KJV", {
+await seekPassages("Baptism of Jesus", "KJV", {
 	contentType: "text",
 })
-	.then((details) => {
-		console.log(`Passage Text: ${details.data.content}`);
-	})
+	.then((passages) =>
+		passages.forEach((passage) => {
+			console.log(`- - ${passage.data.reference} - -`);
+			console.log(passage.data.content);
+		}),
+	)
 	.catch((err) => console.error(`Error fetching passage: ${err.message}`));
+```
+
+Expected Output
+
+```plaintext
+- - Matthew 3:13-17 - -
+     [13] ¶ Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him.  [14] But John forbad him, saying, I have need to be baptized of thee, and comest thou to me?  [15] And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him.  [16] And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him:  [17] And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.
+
+- - Mark 1:9-11 - -
+     [9] And it came to pass in those days, that Jesus came from Nazareth of Galilee, and was baptized of John in Jordan.  [10] And straightway coming up out of the water, he saw the heavens opened, and the Spirit like a dove descending upon him:  [11] And there came a voice from heaven, saying, Thou art my beloved Son, in whom I am well pleased.
+
+- - Luke 3:21-22 - -
+     [21] Now when all the people were baptized, it came to pass, that Jesus also being baptized, and praying, the heaven was opened,  [22] And the Holy Ghost descended in a bodily shape like a dove upon him, and a voice came from heaven, which said, Thou art my beloved Son; in thee I am well pleased.
+
+- - John 1:32-34 - -
+     [32] And John bare record, saying, I saw the Spirit descending from heaven like a dove, and it abode upon him.  [33] And I knew him not: but he that sent me to baptize with water, the same said unto me, Upon whom thou shalt see the Spirit descending, and remaining on him, the same is he which baptizeth with the Holy Ghost.  [34] And I saw, and bare record that this is the Son of God.
 ```
 
 ## License
