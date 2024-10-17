@@ -6,7 +6,8 @@
 		"coverage",
 		"lib",
 		"node_modules",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"README.md"
 	],
 	"words": [
 		"ephrem",
@@ -20,6 +21,9 @@
 		"Stevin",
 		"Wilson",
 		"ലാസറിനെ",
-		"ഉയർത്തി"
+		"ഉയർത്തി",
+		"forbad",
+		"comest",
+		"baptizeth"
 	]
 }
