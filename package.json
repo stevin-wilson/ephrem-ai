@@ -42,7 +42,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
-		"ephrem": "^0.9.1",
+		"ephrem": "^0.10.0",
 		"openai": "^4.67.3"
 	},
 	"devDependencies": {
