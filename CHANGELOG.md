@@ -1,3 +1,9 @@
+## [0.4.3](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.2...0.4.3) (2024-10-24)
+
+### Bug Fixes
+
+- **deps:** update dependency ephrem to ^0.10.0 ([#28](https://github.com/stevin-wilson/ephrem-ai/issues/28)) ([57e5043](https://github.com/stevin-wilson/ephrem-ai/commit/57e50435bfe4862d67b7f62a814c6318f463380e))
+
 ## [0.4.2](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.1...0.4.2) (2024-10-17)
 
 ### Bug Fixes
