@@ -13,7 +13,7 @@ importers:
         version: 0.10.0
       openai:
         specifier: ^4.67.3
-        version: 4.69.0(zod@3.23.8)
+        version: 4.70.0(zod@3.23.8)
     devDependencies:
       '@eslint-community/eslint-plugin-eslint-comments':
         specifier: 4.4.0
@@ -2680,8 +2680,8 @@ packages:
     resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
     engines: {node: '>=18'}
 
-  openai@4.69.0:
-    resolution: {integrity: sha512-S3hOHSkk609KqwgH+7dwFrSvO3Gm3Nk0YWGyPHNscoMH/Y2tH1qunMi7gtZnLbUv4/N1elqCp6bDior2401kCQ==}
+  openai@4.70.0:
+    resolution: {integrity: sha512-Hz8lRAH2oXBG9ct0mssSag/iJz9vrH+k6hSl3enwwtnJz5x9sCaBmWNcYYTsPmkz3GmgUUD102GRrWWBbufqFQ==}
     hasBin: true
     peerDependencies:
       zod: ^3.23.8
@@ -6164,7 +6164,7 @@ snapshots:
       is-inside-container: 1.0.0
       is-wsl: 3.1.0
 
-  openai@4.69.0(zod@3.23.8):
+  openai@4.70.0(zod@3.23.8):
     dependencies:
       '@types/node': 18.19.64
       '@types/node-fetch': 2.6.11
