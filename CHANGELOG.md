@@ -1,3 +1,9 @@
+## [0.4.8](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.7...0.4.8) (2024-11-11)
+
+### Bug Fixes
+
+- **deps:** update dependency openai to v4.71.0 ([#47](https://github.com/stevin-wilson/ephrem-ai/issues/47)) ([ee113c2](https://github.com/stevin-wilson/ephrem-ai/commit/ee113c247fe467129e7a02c0d0e7fa4455af2880))
+
 ## [0.4.7](https://github.com/stevin-wilson/ephrem-ai/compare/0.4.6...0.4.7) (2024-11-09)
 
 ### Bug Fixes
